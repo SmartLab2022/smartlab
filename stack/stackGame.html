@@ -2,60 +2,49 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <!-- <link rel="stylesheet" href="style.css" /> -->
-        <script src="../js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="../css/bootstrap.min.css" />
-        <script src="../js/jquery-3.6.0.min.js"></script>
-        <link rel="stylesheet" href="../css/stack-game-style.css" />
-        <link rel="stylesheet" href="../css/vlabs-style.css" />
-    </head>
-    <body>
-        <header class="vlabs-header sticky-top bg-white">
-            <nav class="p-0 navbar navbar-light d-flex align-items-stretch">
-                <div class="d-flex justify-content-center">
-                    <a href="javascript:footPrint('../Introduction.html' , 'Home')" class="navbar-brand">
-                        <img
-                            src="../images/vlabs-color-small-moe.jpg"
-                            alt="vlabs logo"
-                            class="vlabs-logo"
-                        />
-                    </a>
-                </div>
 
-                <div
-                    id="headerNavbar"
-                    class="d-none border-top flex-grow-1 d-lg-flex align-items-center"
-                >
-                    <ul
-                        class="navbar-nav ml-auto text-center d-flex flex-md-row"
-                    >
-                        <li class="nav-item m-1 font-weight-bold">
-                            <a href="javascript:footPrint('../Introduction.html' , 'Home')">Home</a>
-                        </li>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../css/stack-game-style.css" />
+    <link rel="stylesheet" href="../css/vlabs-style.css" />
+</head>
 
-                        <li class="nav-item m-1 font-weight-bold">
-                            <a href="javascript:footPrint('stackDemo.html' , 'Demo' , 'Stack')">Demo</a>
-                        </li>
-                        <li class="nav-item px-2 m-1 font-weight-bold">
-                            <a href="javascript:footPrint('../changepassword.html' , 'Change Password')">Change Password</a>
-                        </li>
-                        <li class="nav-item px-2 m-1 font-weight-bold">
-                            <a
-                                onclick="logout(1)"
-                                style="color: #2c98cd"
-                                >Logout</a
-                            >
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <div id="canvasContainer" class="canvas-container">
-            <!--
+<body>
+    <header class="vlabs-header sticky-top bg-white">
+        <nav class="p-0 navbar navbar-light d-flex align-items-stretch">
+            <div class="d-flex justify-content-center">
+                <a href="javascript:footPrint('../Introduction.html' , 'Home')" class="navbar-brand">
+                    <img src="../images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo" />
+                </a>
+            </div>
+
+            <div id="headerNavbar" class="d-none border-top flex-grow-1 d-lg-flex align-items-center">
+                <ul class="navbar-nav ml-auto text-center d-flex flex-md-row">
+                    <li class="nav-item m-1 font-weight-bold">
+                        <a href="javascript:footPrint('../Introduction.html' , 'Home')">Home</a>
+                    </li>
+
+                    <li class="nav-item m-1 font-weight-bold">
+                        <a href="javascript:footPrint('stackDemo.html' , 'Demo' , 'Stack')">Demo</a>
+                    </li>
+                    <li class="nav-item px-2 m-1 font-weight-bold">
+                        <a href="javascript:footPrint('../changepassword.html' , 'Change Password')">Change Password</a>
+                    </li>
+                    <li class="nav-item px-2 m-1 font-weight-bold">
+                        <a onclick="logout(1)" style="color: #2c98cd">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div id="canvasContainer" class="canvas-container">
+        <!--
                 <input
                 id="climbbutton"
                 type="button"
@@ -63,150 +52,120 @@
                 onclick="climb()"
             />
            -->
-            <div id="game" class="game">
-                <div class="btn-container" id="btnContainer">
-                    <button
-                        class="btn btn-primary btn-sm game-custom-btn"
-                        id="btnGameStart"
-                    >
-                        Start
-                    </button>
-                    <button
-                        class="btn btn-primary btn-sm game-custom-btn"
-                        id="HowtoPlay"
-                    >
-                        How to play
-                    </button>
-                    <button
-                        class="btn btn-primary btn-sm game-custom-btn"
-                        id="HighScore"
-                    >
-                        High scores
-                    </button>
-                </div>
+        <div id="game" class="game">
+            <div class="btn-container" id="btnContainer">
+                <button class="btn btn-primary btn-sm game-custom-btn" id="btnGameStart">
+                    Start
+                </button>
+                <button class="btn btn-primary btn-sm game-custom-btn" id="HowtoPlay">
+                    How to play
+                </button>
+                <button class="btn btn-primary btn-sm game-custom-btn" id="HighScore">
+                    High scores
+                </button>
+            </div>
 
-                <div class="how-to-play" id="htpContainer">
-                    <ul class="game-instruction-list" id="gameInstructionList">
-                        <h2 class="game-instruction-heading" align="center">
-                            <b><u> How to play</u></b>
-                        </h2>
-                        <li class="game-instruction">
-                            There is a girl who have to collect 3 golds for
-                            winning the game.
-                        </li>
-                        <li class="game-instruction">
-                            The girl will have to climb the ladder and collect
-                            the gold.
-                        </li>
-                        <li class="game-instruction">
-                            Here Ladders are not having the planks so your task
-                            is to put the planks in the ladder for climbing.
-                        </li>
-                        <li class="game-instruction">
-                            Consider the ladder as a data structure Stack and
-                            push and pop planks accordingly.
-                        </li>
-                        <li class="game-instruction">
-                            Push the plank into the ladder,to climb the ladder
-                            and collect the gold.
-                        </li>
-                        <li class="game-instruction">
-                            There are 6 planks and 3 ladders for collecting 3
-                            gold.
-                        </li>
-                        <li class="game-instruction">
-                            First step is to push the planks in ladder1.
-                        </li>
-                        <li class="game-instruction">
-                            Second step is to pop the planks from ladder1,push
-                            them into ladder2.
-                        </li>
-                        <li class="game-instruction">
-                            Third step is to pop the planks from ladder2,push
-                            them into ladder3.
-                        </li>
-                        <li class="game-instruction">
-                            After every step climb the ladder and gold will be
-                            collected.
-                        </li>
-                        <li class="game-instruction">
-                            You have three lifes to win the game.
-                        </li>
-                        <li class="game-instruction">
-                            For every wrong push/pop life will be reduced.
-                        </li>
-                    </ul>
-                    <button
-                        class="btn btn-warning game-custom-back-btn"
-                        id="btnBack"
-                    >
-                        Back
-                    </button>
-                </div>
+            <button class="btn  btn-warning btn-lg btn-game-back" id="btnGameBack">
+                Back
+            </button>
+            <div class="how-to-play" id="htpContainer">
+                <ul class="game-instruction-list" id="gameInstructionList">
+                    <h2 class="game-instruction-heading" align="center">
+                        <b><u> How to play</u></b>
+                    </h2>
+                    <li class="game-instruction">
+                        There is a girl who have to collect 3 golds for
+                        winning the game.
+                    </li>
+                    <li class="game-instruction">
+                        The girl will have to climb the ladder and collect
+                        the gold.
+                    </li>
+                    <li class="game-instruction">
+                        Here Ladders are not having the planks so your task
+                        is to put the planks in the ladder for climbing.
+                    </li>
+                    <li class="game-instruction">
+                        Consider the ladder as a data structure Stack and
+                        push and pop planks accordingly.
+                    </li>
+                    <li class="game-instruction">
+                        Push the plank into the ladder,to climb the ladder
+                        and collect the gold.
+                    </li>
+                    <li class="game-instruction">
+                        There are 6 planks and 3 ladders for collecting 3
+                        gold.
+                    </li>
+                    <li class="game-instruction">
+                        First step is to push the planks in ladder1.
+                    </li>
+                    <li class="game-instruction">
+                        Second step is to pop the planks from ladder1,push
+                        them into ladder2.
+                    </li>
+                    <li class="game-instruction">
+                        Third step is to pop the planks from ladder2,push
+                        them into ladder3.
+                    </li>
+                    <li class="game-instruction">
+                        After every step climb the ladder and gold will be
+                        collected.
+                    </li>
+                    <li class="game-instruction">
+                        You have three lifes to win the game.
+                    </li>
+                    <li class="game-instruction">
+                        For every wrong push/pop life will be reduced.
+                    </li>
+                </ul>
+                <button class="btn btn-warning game-custom-back-btn" id="btnBack">
+                    Back
+                </button>
+            </div>
 
-                <div class="how-to-play" id="stackHsContainer">
-                    <ul class="game-instruction-list" id="gameInstructionList">
-                        <h2 class="game-instruction-heading" align="center">
-                            <b><u>High Score</u></b>
-                        </h2>
-                        <table id="highscoreTable">
-                        </table>
-                    </ul>
-                    <button
-                        class="btn btn-warning game-custom-back-btn"
-                        id="btnBackHS"
-                    >
-                        Back
-                    </button>
-                </div>
-                <div id="canvasInnerContainer" class="canvas-inner-containers">
-                    <canvas id="canvas">
-                        Your Browser Cannot support the Canvas.</canvas
-                    >
-                </div>
+            <div class="how-to-play" id="stackHsContainer">
+                <ul class="game-instruction-list" id="gameInstructionList">
+                    <h2 class="game-instruction-heading" align="center">
+                        <b><u>High Score</u></b>
+                    </h2>
+                    <table id="highscoreTable">
+                    </table>
+                </ul>
+                <button class="btn btn-warning game-custom-back-btn" id="btnBackHS">
+                    Back
+                </button>
+            </div>
+            <div id="canvasInnerContainer" class="canvas-inner-containers">
+                <canvas id="canvas">
+                    Your Browser Cannot support the Canvas.</canvas>
             </div>
         </div>
-        <script
-            src="../output_dirs/allfiles/stack-game/Canvas.js"
-            defer
-        ></script>
-        <script src="../output_dirs/allfiles/BezierCurve.js" defer></script>
-        <script src="../output_dirs/allfiles/stack-game/gold.js" defer></script>
-        <script
-            src="../output_dirs/allfiles/stack-game/plank.js"
-            defer
-        ></script>
-        <script
-            src="../output_dirs/allfiles/stack-game/Ladder.js"
-            defer
-        ></script>
-        <script src="../output_dirs/allfiles/stack-game/Girl.js" defer></script>
-        <script
-            src="../output_dirs/allfiles/stack-game/StackButton.js"
-            defer
-        ></script>
-        <script
-            src="../output_dirs/allfiles/stack-game/StackGameUtils.js"
-            defer
-        ></script>
+    </div>
+    <script src="../output_dirs/allfiles/stack-game/Canvas.js" defer></script>
+    <script src="../output_dirs/allfiles/BezierCurve.js" defer></script>
+    <script src="../output_dirs/allfiles/stack-game/gold.js" defer></script>
+    <script src="../output_dirs/allfiles/stack-game/plank.js" defer></script>
+    <script src="../output_dirs/allfiles/stack-game/Ladder.js" defer></script>
+    <script src="../output_dirs/allfiles/stack-game/Girl.js" defer></script>
+    <script src="../output_dirs/allfiles/stack-game/StackButton.js" defer></script>
+    <script src="../output_dirs/allfiles/stack-game/StackGameUtils.js" defer></script>
 
-        <script
-            src="../output_dirs/allfiles/stack-game/GameApp.js"
-            defer
-        ></script>
+    <script src="../output_dirs/allfiles/stack-game/GameApp.js" defer></script>
 
-        <img src="../images/stack-game/background.jpg" id="background" />
-        <img src="../images/stack-game/girl.png" id="girl" />
-        <img src="../images/stack-game/ladder.png" id="ladder" />
-        <img src="../images/stack-game/planc.png" id="plank" />
-        <img src="../images/stack-game/gold.png" id="gold" />
-        <img src="../images/stack-game/bag.png" id="bag" />
-        <img src="../images/stack-game/life.png" id="stk_life" />
+    <img src="../images/stack-game/background.jpg" id="background" />
+    <img src="../images/stack-game/girl.png" id="girl" />
+    <img src="../images/stack-game/ladder.png" id="ladder" />
+    <img src="../images/stack-game/planc.png" id="plank" />
+    <img src="../images/stack-game/gold.png" id="gold" />
+    <img src="../images/stack-game/bag.png" id="bag" />
+    <img src="../images/stack-game/life.png" id="stk_life" />
 
-        <script src="../output_dirs/allfiles/backend_global.js"></script>
+    <script src="../output_dirs/allfiles/backend_global.js"></script>
 
-        <script>
-            checkAuth("Game", "Stack");
-        </script>
-    </body>
+    <script>
+        checkAuth("Game", "Stack");
+    </script>
+</body>
+
 </html>
