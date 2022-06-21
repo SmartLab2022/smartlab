@@ -25,14 +25,15 @@ function checkAuth(page = null, experiment = null) {
     }
 }
 function logout(directory_level) {
-    //footPrint();
+    var link;
     localStorage.clear();
     if (directory_level == 0)
-        window.location.href = 'signin.html';
+        link = 'signin.html';
     else if (directory_level == 1)
-        window.location.href = '../signin.html';
+        link = '../signin.html';
     else
-        window.location.href = '../../signin.html';
+        link = '../../signin.html';
+    footPrint(link);
 }
 window.addEventListener('beforeunload', function (e) {
     if (footPrintFlag != false)
@@ -40,7 +41,6 @@ window.addEventListener('beforeunload', function (e) {
     clearInterval(pageTimer);
 });
 function footPrint(link = null, page = null, experiment = null) {
-    console.log(currentPage)
     if (currentPage != null) {
         var data = {
             "email": email,
