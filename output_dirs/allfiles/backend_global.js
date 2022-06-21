@@ -25,8 +25,7 @@ function checkAuth(page = null, experiment = null) {
     }
 }
 function logout(directory_level) {
-    if (currentPage != null)
-        footPrint();
+    footPrint();
     localStorage.clear();
     if (directory_level == 0)
         window.location.href = 'signin.html';
@@ -37,11 +36,10 @@ function logout(directory_level) {
 }
 window.addEventListener('beforeunload', function (e) {
     clearInterval(pageTimer);
-    if (currentPage != null && footPrintFlag != false)
+    if (footPrintFlag != false)
         footPrint();
 });
 function footPrint(link = null, page = null, experiment = null) {
-    console.log(min, sec);
     if (currentPage != null) {
         var data = {
             "email": email,
