@@ -1,0 +1,121 @@
+/** @format */
+
+.canvas-container {
+    display: flex;
+    justify-content: center;
+}
+.game {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 4px solid red; */
+}
+.btn-container {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.how-to-play {
+    top: 0;
+    position: absolute;
+    display: flex;
+    background: transparent;
+}
+.game-instruction-list {
+    margin: 2rem 1rem;
+    /* height: inherit; */
+    height: auto;
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+.game-custom-back-btn {
+    display: flex;
+    margin: auto;
+}
+.game-instruction {
+    color: #7adce9;
+    list-style-type: none;
+    line-height: 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: "kenvector_future_thin", serif;
+}
+.game-instruction::before {
+    content: "\2022";
+    color: rgb(86, 202, 86);
+    /* font-weight: bold; */
+    display: inline-block;
+    width: 1rem;
+    /*   list-style-type: none; */
+
+    /* font-size: 2rem;
+  font-weight:bolder;
+  font-family: "kenvector_future_thin", serif; */
+}
+.game-instruction-heading {
+    /* list-style: none; */
+    color: rgb(86, 202, 86);
+    /* list-style-type: none; */
+
+    font-size: 2rem;
+    font-weight: bolder;
+    font-family: "kenvector_future_thin", serif;
+}
+.game-instruction-list::-webkit-scrollbar {
+    display: none;
+}
+.game-instruction-list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.game-custom-btn {
+    color: #00f2e5;
+    word-spacing: 0.5rem;
+    font-size: 2rem;
+    font-weight: bolder;
+    background: transparent;
+    border: none;
+    overflow: hidden;
+    font-family: "kenvector_future_thin", serif;
+}
+
+.btn-game-canvas {
+    margin-left: 0.5rem;
+    position: absolute;
+}
+.game-staus {
+    color: rgb(86, 202, 86);
+    list-style-type: none;
+
+    font-size: 2rem;
+    font-weight: bolder;
+    font-family: "kenvector_future_thin", serif;
+}
+.game-level {
+    color: aliceblue;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    font-family: "kenvector_future_thin", serif;
+}
+.game-custom-canvas-btn {
+    /*   color: #00f2e5;
+ */ /* word-spacing: 0.5rem; */
+    /* font-size: 2rem; */
+    /* font-weight: bolder; 
+  background: transparent;*/
+    display: inline;
+    border: none;
+    font-family: "kenvector_future_thin", serif;
+}
+.game-custom-btn:hover {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
