@@ -25,7 +25,7 @@ function checkAuth(page = null, experiment = null) {
     }
 }
 function logout(directory_level) {
-    footPrint();
+    //footPrint();
     localStorage.clear();
     if (directory_level == 0)
         window.location.href = 'signin.html';
@@ -35,9 +35,9 @@ function logout(directory_level) {
         window.location.href = '../../signin.html';
 }
 window.addEventListener('beforeunload', function (e) {
-    clearInterval(pageTimer);
     if (footPrintFlag != false)
         footPrint();
+    clearInterval(pageTimer);
 });
 function footPrint(link = null, page = null, experiment = null) {
     console.log(currentPage)
