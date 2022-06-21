@@ -27,9 +27,12 @@ var btnGameStart = document.getElementById("btnGameStart");
 var btnHP = document.getElementById("HowtoPlay");
 var btnHS = document.getElementById("HighScore");
 var btnBack = document.getElementById("btnBack");
+var btnGameBack = document.getElementById("btnGameBack");
+btnGameBack.style.display = "none";
 var stackHsContainer = document.getElementById("stackHsContainer");
 stackHsContainer.style.display = "none";
 var btnBackHS = document.getElementById("btnBackHS");
+var isStackGameStarted = false;
 var ClimbButton;
 ['load', 'resize'].forEach(event => {
     window.addEventListener(event, () => {
@@ -37,6 +40,12 @@ var ClimbButton;
         // main();
     }), false;
 });
+btnGameBack.onclick = () => {
+    btnGameBack.style.display = "none";
+    btnContainer.style.display = "flex";
+    isStackGameStarted = false;
+    stkHomeScreen();
+};
 btnHS.onclick = () => {
     btnContainer.style.display = "none";
     stackHsContainer.style.display = "block";
@@ -48,6 +57,7 @@ btnBackHS.onclick = () => {
     stackHsContainer.style.display = "none";
 };
 btnGameStart.onclick = () => {
+    isStackGameStarted = true;
     btnContainer.style.display = "none";
     main();
 };
@@ -77,12 +87,11 @@ isStkGameOver = false;
 isStkGameWon = false;
 stk_canvas.addEventListener("mousedown", mouseDown, false);
 function mouseDown(e) {
-    if (isStkGameOver == false && isStkGameWon == false) {
+    if (isStkGameOver == false && isStkGameWon == false && isStackGameStarted == true) {
         var i = 0;
         var [canvasX, canvasY] = cmpStackGame.getCursorPosition(e);
         let pt = new Point(canvasX, canvasY);
         if (ClimbButton.isInside(pt)) {
-            //console.log("Button click")
             climb();
         }
         for (i = 0; i < planks.length; i++) {
@@ -97,13 +106,13 @@ function mouseDown(e) {
                 }
                 if (planks[i].isDragable == false) {
                     planks[i].wrongPlank();
-                    //console.log("I m here for pop")
                     stk_ctx.fillText("You cannot pop this plank.Pop the Top plank from Ladder" + (prevLadderCount + 1), 300, 70);
                     message = "You cannot pop this plank.Pop the Top plank from Ladder" + (prevLadderCount + 1);
                     lifes--;
                     if (lifes == 0) {
                         isStkGameOver = true;
                         message += ".Game Over";
+                        btnGameBack.style.display = "block";
                         updateLeaderBoard(score, 'Stack', Math.floor(second / 60), second % 60);
                         clearInterval(gameTimer);
                         updateStackGameCanvas();
@@ -115,7 +124,7 @@ function mouseDown(e) {
     }
 }
 stk_canvas.addEventListener('mousemove', e => {
-    if (isStkGameOver == false && isStkGameWon == false) {
+    if (isStkGameOver == false && isStkGameWon == false && isStackGameStarted) {
         var [canvasX, canvasY] = cmpStackGame.getCursorPosition(e);
         let pt = new Point(canvasX, canvasY);
         for (let i = 0; i < planks.length; i++) {
@@ -128,7 +137,7 @@ stk_canvas.addEventListener('mousemove', e => {
 });
 var isLadderFull = false;
 stk_canvas.addEventListener('mouseup', e => {
-    if (isStkGameOver == false && isStkGameWon == false) {
+    if (isStkGameOver == false && isStkGameWon == false && isStackGameStarted) {
         var [canvasX, canvasY] = cmpStackGame.getCursorPosition(e);
         let pt = new Point(canvasX, canvasY);
         for (let i = 0; i < planks.length; i++) {
@@ -154,6 +163,7 @@ stk_canvas.addEventListener('mouseup', e => {
                         if (lifes == 0) {
                             isStkGameOver = true;
                             message += " .Game Over";
+                            btnGameBack.style.display = "block";
                             updateLeaderBoard(score, 'Stack', Math.floor(second / 60), second % 60);
                             clearInterval(gameTimer);
                             updateStackGameCanvas();
