@@ -40,6 +40,7 @@ window.addEventListener('beforeunload', function (e) {
         footPrint();
 });
 function footPrint(link = null, page = null, experiment = null) {
+    console.log(currentPage)
     if (currentPage != null) {
         var data = {
             "email": email,
