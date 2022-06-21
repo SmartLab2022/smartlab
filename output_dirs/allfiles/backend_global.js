@@ -41,7 +41,7 @@ window.addEventListener('beforeunload', function (e) {
         footPrint();
 });
 function footPrint(link = null, page = null, experiment = null) {
-    if (sessionStorage.getItem('currentPage') != null) {
+    if (currentPage != null) {
         var data = {
             "email": email,
             "page": currentPage,
