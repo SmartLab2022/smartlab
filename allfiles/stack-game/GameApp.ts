@@ -31,12 +31,14 @@ var btnGameStart: HTMLButtonElement = <HTMLButtonElement>document.getElementById
 var btnHP: HTMLButtonElement = <HTMLButtonElement>document.getElementById("HowtoPlay");
 var btnHS: HTMLButtonElement = <HTMLButtonElement>document.getElementById("HighScore");
 var btnBack: HTMLButtonElement = <HTMLButtonElement>document.getElementById("btnBack");
+var btnGameBack: HTMLButtonElement = <HTMLButtonElement>document.getElementById("btnGameBack");
+btnGameBack.style.display = "none"
 
 var stackHsContainer: HTMLDivElement = <HTMLDivElement>document.getElementById("stackHsContainer");
 stackHsContainer.style.display = "none";
 
 var btnBackHS: HTMLButtonElement = <HTMLButtonElement>document.getElementById("btnBackHS");
-
+var isStackGameStarted=false;
 
 var ClimbButton: StkButton;
 
@@ -46,6 +48,13 @@ var ClimbButton: StkButton;
         // main();
     }), false
 });
+
+btnGameBack.onclick = () =>{
+    btnGameBack.style.display = "none";
+    btnContainer.style.display = "flex";
+    isStackGameStarted=false;
+    stkHomeScreen();
+}
 
 btnHS.onclick = () => {
     btnContainer.style.display = "none"
@@ -57,10 +66,10 @@ btnBackHS.onclick = () => {
     btnContainer.style.display = "flex";
     htopContainer.style.display = "none";
     stackHsContainer.style.display = "none"
-
-
 }
+
 btnGameStart.onclick = () => {
+    isStackGameStarted=true;
     btnContainer.style.display = "none";
     main();
 
@@ -99,13 +108,12 @@ isStkGameWon = false;
 stk_canvas.addEventListener("mousedown", mouseDown, false);
 function mouseDown(e: MouseEvent) {
 
-    if (isStkGameOver == false && isStkGameWon == false) {
+    if (isStkGameOver == false && isStkGameWon == false && isStackGameStarted==true) {
         var i: number = 0;
         var [canvasX, canvasY] = cmpStackGame.getCursorPosition(e);
         let pt = new Point(canvasX, canvasY);
 
         if (ClimbButton.isInside(pt)) {
-            //console.log("Button click")
             climb()
         }
         for (i = 0; i < planks.length; i++) {
@@ -120,13 +128,13 @@ function mouseDown(e: MouseEvent) {
                 }
                 if (planks[i].isDragable == false) {
                     planks[i].wrongPlank();
-                    //console.log("I m here for pop")
                     stk_ctx.fillText("You cannot pop this plank.Pop the Top plank from Ladder" + (prevLadderCount + 1), 300, 70)
                     message = "You cannot pop this plank.Pop the Top plank from Ladder" + (prevLadderCount + 1)
                     lifes--
                     if (lifes == 0) {
                         isStkGameOver = true
                         message += ".Game Over"
+                        btnGameBack.style.display="block";
                         updateLeaderBoard(score , 'Stack' , Math.floor(second / 60) , second % 60)
                         clearInterval(gameTimer)
                         updateStackGameCanvas()
@@ -140,9 +148,9 @@ function mouseDown(e: MouseEvent) {
 
 
 stk_canvas.addEventListener('mousemove', e => {
-    if (isStkGameOver == false && isStkGameWon == false) {
+    if (isStkGameOver == false && isStkGameWon == false && isStackGameStarted) {
         var [canvasX, canvasY] = cmpStackGame.getCursorPosition(e);
-        let pt = new Point(canvasX, canvasY);
+        let pt = new Point(canvasX, canvasY);   
         for (let i = 0; i < planks.length; i++) {
             if (planks[i].isDragable) {
                 let pt1 = new Point(pt.x - planks[i].width / 2, pt.y - planks[i].height / 2);
@@ -154,7 +162,7 @@ stk_canvas.addEventListener('mousemove', e => {
 
 var isLadderFull = false;
 stk_canvas.addEventListener('mouseup', e => {
-    if (isStkGameOver == false && isStkGameWon == false) {
+    if (isStkGameOver == false && isStkGameWon == false && isStackGameStarted) {
         var [canvasX, canvasY] = cmpStackGame.getCursorPosition(e);
         let pt = new Point(canvasX, canvasY);
         for (let i = 0; i < planks.length; i++) {
@@ -180,6 +188,7 @@ stk_canvas.addEventListener('mouseup', e => {
                         if (lifes == 0) {
                             isStkGameOver = true
                             message += " .Game Over"
+                            btnGameBack.style.display="block"
                             updateLeaderBoard(score , 'Stack' , Math.floor(second / 60) , second % 60)
                             clearInterval(gameTimer)
                             updateStackGameCanvas()
