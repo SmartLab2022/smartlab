@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sign up</title>
+        <link rel="stylesheet" href="css/loginStyle.css"/>
+    </head>
+    <body>
+        <form method="post">
+            <div class="login">
+                <div class="login-form">
+                    <div id="signup_details">
+                        <div class="login-header">
+                            <h1>Sign up</h1>
+                        </div><br>
+
+                        <h3>*First Name:</h3>
+                        <input type="text" name="fname" id="fname" placeholder="First Name" onblur="validateName()" required autofocus/><br>
+                        <h3>Last Name:</h3>
+                        <input type="text" name="lname" id="lname" placeholder="Last Name"/><br>
+                        <h3>*Email:</h3>
+                        <input type="email" name="inputEmail" id="inputEmail" placeholder="Email address" onblur="validateEmail(this)" required/><br>
+                        <h3>*Password:</h3>
+                        <input type="password" name="inputPassword" id="inputPassword" placeholder="Password" required/>
+                        <br>
+                        <h3>*Confirm Password:</h3>
+                        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Password" onblur="confirmPassVerify()" required/>
+                        <br>
+                        <div id='message' class="error"></div>
+                        <button id="btnSignUp" class="login-button" type="button" onclick="signup()">Sign up </button>
+                        <br><br>
+                        <label class="sign-up">Already have an account?</label>
+                        <a href="signin.html" class="sign-up">Sign in</a>
+                    </div>
+                    <div id="verify_email" class="verify_email">
+                        <div class="login-header">
+                            <h1>Verify Email</h1>
+                        </div><br/>
+                        <h3>Enter OTP(sent on your given email):</h3><br/>
+                        <input type="password" name="otp_textbox" id="otp_textbox" placeholder="OTP"/><br/>
+                        <button id="submit_otp" class="login-button" type="button" onclick="addUser()">Submit</button><br/><br/>
+                        <div>
+                            <span>OTP expires in : </span>
+                            <span id="otp_timer"></span><br/><br/>
+                        </div>
+                        <label class="sign-up">Didn't receive mail!</label>
+                        <a href="javascript:resend_otp('SignUp')" class="sign-up">Resend</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </form>
+
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="output_dirs/allfiles/Authentication.js"></script>
+    </body>
+</html>

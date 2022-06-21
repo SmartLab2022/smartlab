@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/game-style.css">
+
+</head>
+
+<body>
+
+
+    <div id="canvasContainer" class="canvas-container">
+
+        <div class="btn-container" id="btnContainer">
+            <button class="btn btn-primary btn-sm game-custom-btn" id="btnGameStart">Start</button>
+            <button class="btn btn-primary btn-sm game-custom-btn" id="HowtoPlay">How to play</button>
+            <button class="btn btn-primary btn-sm game-custom-btn" id="HighScore">High scores</button>
+        </div>
+
+        <div class="how-to-play" id="htpContainer">
+            <ul class="game-instruction-list">
+                <h2 class="game-instruction-heading" align="center"><b><u> How to play</u></b></h2>
+                <li class="game-instruction">Use keyboard arrows to move the plane to left or right</li>
+                <li class="game-instruction">Use spacebar/mouse click to fire</li>
+                <li class="game-instruction">You have to burst the nodes in correct order to clear the level</li>
+                <li class="game-instruction">You have 3 lifes to complete the game</li>
+
+            </ul>
+            <button class="btn btn-warning game-custom-back-btn" id="btnBack">Back</button>
+        </div>
+        <div id="canvasInnerContainer" class="canvas-inner-containers">
+            <div id="btnGameCanvas" class="btn-game-canvas">
+                <p id="gameLevel" class="game-level"></p>
+                <p id="gameStatus" class="game-staus"></p>
+                <p id="gameTextInstruction" class="text-instruction"></p>
+                <button class="btn btn-warning game-custom-canvas-btn" id="gameRestart">Restart</button>
+                <button class="btn btn-warning game-custom-canvas-btn" id="gameBack">Back</button>
+
+                <button class="btn btn-warning game-custom-canvas-btn" id="gameNextLevel">Next Level</button>
+
+            </div>
+            <canvas id="canvas" class="tree-canvas">
+                Your Browser Cannot support the Canvas.
+            </canvas>
+        </div>
+
+    </div>
+    <!--  <div class="btn-main">
+        <button id="btnStartGame" class="btn btn-sm btn-primary" >
+            Start Game
+        </button>
+    </div> -->
+    <script src="output_dirs/allfiles/game/constants.js"></script>
+    <script src="output_dirs/allfiles/Canvas.js"></script>
+    <script src="output_dirs/allfiles/BezierCurve.js"></script>
+    <script src="output_dirs/allfiles/Circle.js"></script>
+    <script src="output_dirs/allfiles/BinarySearchTreeNode.js"></script>
+    <script src="output_dirs/allfiles/treeUtilities.js"></script>
+    <script src="output_dirs/allfiles/connectPointsWithBezierCurve.js"></script>
+    <script src="output_dirs/allfiles/drawSimpleBinaryTree.js"></script>
+    <script src="output_dirs/allfiles/drawBinaryTree.js"></script>
+    <script src="output_dirs/allfiles/globals.js"></script>
+    <script src="output_dirs/allfiles/game/GameUtills.js" defer></script>
+    <script src="output_dirs/allfiles/game/Bullet.js" defer></script>
+
+    <script src="output_dirs/allfiles/game/plane.js" defer></script>
+
+    <script src="output_dirs/allfiles/game/GameApp.js" defer></script>
+
+
+    <img src="images/laserRed06.png" id="bullet">
+    <img src="images/background.png" id="bg">
+    <img src="images/aeroplane.png" id="plane">
+    <img src="images/order-game/life.png" id="life">
+    <img src="images/order-game/blast.png" id="blast">
+    <img src="images/order-game/blast_wrong.png" id="blastWrong">
+
+</body>
+
+</html>
