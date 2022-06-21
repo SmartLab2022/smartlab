@@ -119,3 +119,11 @@
     border: none;
     cursor: pointer;
 }
+
+
+.btn-game-back{
+    position: absolute;
+    top: 0;
+    right: 0px;
+    margin: 5rem;
+}
