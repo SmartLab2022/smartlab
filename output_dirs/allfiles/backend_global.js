@@ -37,7 +37,7 @@ function logout(directory_level) {
 }
 window.addEventListener('beforeunload', function (e) {
     clearInterval(pageTimer);
-    if (currentPage != null && footPrintFlag)
+    if (currentPage != null && footPrintFlag == true)
         footPrint();
 });
 function footPrint(link = null, page = null, experiment = null) {
