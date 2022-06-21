@@ -1,10 +1,10 @@
-var min = 0;
-var sec = 0;
 var sim_min = 0;
 var sim_sec = 0;
-var currentPage = '';
-var currentExperiment = '';
-var footPrintFlag = true;
+var min;
+var sec;
+var currentPage;
+var currentExperiment;
+var footPrintFlag;
 var pageTimer;
 var email;
 function checkAuth(page = null, experiment = null) {
@@ -37,10 +37,11 @@ function logout(directory_level) {
 }
 window.addEventListener('beforeunload', function (e) {
     clearInterval(pageTimer);
-    if (currentPage != null && footPrintFlag == true)
+    if (currentPage != null && footPrintFlag != false)
         footPrint();
 });
 function footPrint(link = null, page = null, experiment = null) {
+    console.log(min, sec);
     if (currentPage != null) {
         var data = {
             "email": email,
