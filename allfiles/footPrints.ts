@@ -25,7 +25,7 @@ function getFootPrints(type){
             'Content-type': 'application/json',
             'Accept': 'application/json'
         },
-        url: 'http://127.0.0.1:5000/getFootPrints',
+        url: 'https://smartlabbackend.herokuapp.com/getFootPrints',
         crossDomain: true,
         data:JSON.stringify(data),
         success: function(response){
