@@ -1,7 +1,3 @@
-<!-- @format -->
-<!-- @format -->
-<!-- @format -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +19,7 @@
     <meta name="theme-color" content="#4076e0" />
     <!-- Windows Phone -->
     <meta name="msapplication-navbutton-color" content="#4076e0" />
-    <title>Browsing Pattern</title>
+    <title>Leader Board</title>
     <link rel="shortcut icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <link rel="stylesheet"
@@ -63,7 +59,8 @@
     </style>
 </head>
 
-<body class="p-0 container-fluid vlabs-page d-flex flex-column justify-content-between">
+<body class="p-0 container-fluid vlabs-page d-flex flex-column justify-content-between"
+    onload="getLeaderBoard('Preorder')">
 
 
     <header class="vlabs-header sticky-top bg-white">
@@ -155,7 +152,7 @@
                             </div>
                             <div>
                                 <div class="d-flex nav-menu-body">
-                                    <a href="Leader Board.html" class="p-2 ">
+                                    <a href="Leader Board.html" class="p-2 current-item">
                                         Leader Board
                                     </a>
                                 </div>
@@ -164,7 +161,7 @@
                                     </div>
                                 </div>
                             </div>
-            
+                            
 
 
                             <div class="d-flex nav-menu-body">
@@ -193,7 +190,7 @@
                 </div>
                 <div>
                     <div class="d-flex nav-menu-body">
-                        <a href="Browsing Pattern.html" class="p-2 current-item">
+                        <a href="Browsing Pattern.html" class="p-2 ">
                             Browsing Pattern
                         </a>
                     </div>
@@ -215,7 +212,7 @@
                 </div>
                 <div>
                     <div class="d-flex nav-menu-body">
-                        <a href="Leader Board.html" class="p-2 ">
+                        <a href="Leader Board.html" class="p-2 current-item">
                             Leader Board
                         </a>
                     </div>
@@ -227,22 +224,20 @@
 
             </div>
             <div class="vlabs-page-content px-5 pb-4 flex-grow-0 markdown-body" id="chartContainer">
-                
-                Data browsing pattern of User<br/>
-                From <br/>
-                <input type="radio" id="theory" name="chart" value="theory" onclick="getFootPrints('Theory')">
-                <label for="experiment">Theory</label>
-                <input type="radio" id="demo" name="chart" value="demo" onclick="getFootPrints('Demo')" checked>
-                <label for="page">Demo</label>
-                <input type="radio" id="simulation" name="chart" value="simulation" onclick="getFootPrints('Simulation')">
-                <label for="page">Simulation</label>
-                <input type="radio" id="evaluation" name="chart" value="evaluation" onclick="getFootPrints('Evaluation')">
-                <label for="page">Evaluation</label>
-                <input type="radio" id="game" name="chart" value="game" onclick="getFootPrints('Game')">
-                <label for="page">Game</label><br/>
-                To <br/>
-                <canvas id="chart_canvas"></canvas>
-               
+
+                <input type="radio" id="Preorder" name="experiment" value="Preorder"
+                    onclick="getLeaderBoard('Preorder')" checked>
+                <label for="Preorder">Preorder</label>
+                <input type="radio" id="Inorder" name="experiment" value="Inorder" onclick="getLeaderBoard('Inorder')">
+                <label for="Inorder">Inorder</label>
+                <input type="radio" id="Postorder" name="experiment" value="Postorder"
+                    onclick="getLeaderBoard('Postorder')">
+                <label for="Postorder">Postorder</label>
+                <input type="radio" id="Stack" name="experiment" value="Stack" onclick="getLeaderBoard('Stack')">
+                <label for="Stack">Stack</label>
+                <h2>Leader Board</h2>
+                <table id="LeaderBoard"></table>
+
 
 
             </div>
@@ -279,19 +274,11 @@
         </div>
 
     </footer>
-
-    <script src="../js/toggleSidebar.js"></script>
-    <script src="../output_dirs/allfiles/backend_global.js"></script>
-
-    <script src="../chart.js/dist/chart.min.js" defer></script>
+    
     <script src="../js/jquery-3.6.0.min.js"></script>
-    <script src="../output_dirs/allfiles/footPrints.js"></script>
-    <script>
-        checkAuth("Index");
-    </script>
+    <script src="../output_dirs/allfiles/backend_global.js"></script>
 
 
 
 </body>
-
 </html>

@@ -142,7 +142,28 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <div>
+                                <div class="d-flex nav-menu-body">
+                                    <a href="Test Score.html" class="p-2 ">
+                                        Test Score
+                                    </a>
+                                </div>
+                                <div id="t-" class="collapse">
+                                    <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex nav-menu-body">
+                                    <a href="Leader Board.html" class="p-2 ">
+                                        Leader Board
+                                    </a>
+                                </div>
+                                <div id="t-" class="collapse">
+                                    <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="d-flex nav-menu-body">
                                 <a class="p-2" onclick="logout(1)" style="color:#3e6389">
@@ -179,16 +200,40 @@
                         </div>
                     </div>
                 </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="Test Score.html" class="p-2 ">
+                            Test Score
+                        </a>
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="Leader Board.html" class="p-2 ">
+                            Leader Board
+                        </a>
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="vlabs-page-content px-5 pb-4 flex-grow-0 markdown-body" id="chartContainer">
-                
-                Data About Overall Time Spend By User based on <br/>
-                <input type="radio" id="experiment_chart" name="chart" value="experiment" onclick="getFootPrints('experiment')">
+
+                Data About Overall Time Spend By User based on <br />
+                <input type="radio" id="experiment_chart" name="chart" value="experiment"
+                    onclick="getFootPrints('experiment')">
                 <label for="experiment">Experiments</label>
                 <input type="radio" id="page_chart" name="chart" value="page" onclick="getFootPrints('page')" checked>
-                <label for="page">Page</label><br/>
+                <label for="page">Page</label><br />
                 <canvas id="chart_canvas"></canvas>
-               
+
 
 
             </div>
