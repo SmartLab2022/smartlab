@@ -183,4 +183,87 @@ function getHighScore(experiment) {
         }
     });
 }
+function getTestScore(experiment) {
+    $("#TestScore tbody").remove();
+    var data = {
+        'experiment': experiment
+    };
+    $.ajax({
+        type: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json'
+        },
+        url: 'https://smartlabbackend.herokuapp.com/getTestScore',
+        crossDomain: true,
+        data: JSON.stringify(data),
+        success: function (response) {
+            console.log(response);
+            var len = response.length;
+            var table = document.getElementById('TestScore');
+            table.className = "table";
+            var row = table.insertRow(0);
+            var cell0 = row.insertCell(0);
+            var cell1 = row.insertCell(1);
+            var cell2 = row.insertCell(2);
+            var cell3 = row.insertCell(3);
+            cell0.innerHTML = 'Email';
+            cell1.innerHTML = 'Played on';
+            cell2.innerHTML = 'Score (in %)';
+            cell3.innerHTML = 'Time Taken';
+            for (var i = 0; i < len; i++) {
+                row = table.insertRow(i + 1);
+                cell0 = row.insertCell(0);
+                cell1 = row.insertCell(1);
+                cell2 = row.insertCell(2);
+                cell3 = row.insertCell(3);
+                cell0.innerHTML = response[i]['email'];
+                cell1.innerHTML = response[i]['date'];
+                cell2.innerHTML = response[i]['score'] + '%';
+                cell3.innerHTML = response[i]['time_taken']['min'] + ' : ' + response[i]['time_taken']['sec'];
+            }
+        }
+    });
+}
+function getLeaderBoard(experiment) {
+    $("#LeaderBoard tbody").remove();
+    var data = {
+        'experiment': experiment
+    };
+    $.ajax({
+        type: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json'
+        },
+        url: 'https://smartlabbackend.herokuapp.com/getLeaderBoard',
+        crossDomain: true,
+        data: JSON.stringify(data),
+        success: function (response) {
+            var len = response.length;
+            var table = document.getElementById('LeaderBoard');
+            table.className = "table ";
+            var row = table.insertRow(0);
+            var cell0 = row.insertCell(0);
+            var cell1 = row.insertCell(1);
+            var cell2 = row.insertCell(2);
+            var cell3 = row.insertCell(3);
+            cell0.innerHTML = 'Email';
+            cell1.innerHTML = 'Played on';
+            cell2.innerHTML = 'Score';
+            cell3.innerHTML = 'Time Taken';
+            for (var i = 0; i < len; i++) {
+                row = table.insertRow(i + 1);
+                cell0 = row.insertCell(0);
+                cell1 = row.insertCell(1);
+                cell2 = row.insertCell(2);
+                cell3 = row.insertCell(3);
+                cell0.innerHTML = response[i]['email'];
+                cell1.innerHTML = response[i]['date'];
+                cell2.innerHTML = response[i]['score'];
+                cell3.innerHTML = response[i]['time_taken']['min'] + ' : ' + response[i]['time_taken']['sec'];
+            }
+        }
+    });
+}
 //# sourceMappingURL=backend_global.js.map
