@@ -7,26 +7,20 @@ var currentExperiment;
 var footPrintFlag;
 var pageTimer;
 var email;
-function checkAuth(page = null, experiment = null) {
+function checkAuth(page = '', experiment = '') {
     if (localStorage.getItem('email') == null) {
         if (experiment == 'Stack' || experiment == 'BST' || page == 'Aim' || page == 'Index')
             window.location.href = '../signin.html';
-        else if (experiment == null)
+        else if (experiment == '')
             window.location.href = 'signin.html';
         else
             window.location.href = '../../signin.html';
     }
     email = localStorage.getItem('email');
     $('#welcomeMsg').html('Welcome ' + localStorage.getItem('name'));
-    if (experiment != null) {
-        currentPage = page;
-        currentExperiment = experiment;
-        recordTime();
-    }
-    else{
-        currentPage = null
-        currentExperiment = null
-    }
+    currentPage = page;
+    currentExperiment = experiment;
+    recordTime();
     footPrintFlag = true
 }
 function logout(directory_level) {
@@ -45,8 +39,8 @@ window.addEventListener('beforeunload', function (e) {
         footPrint();
     clearInterval(pageTimer);
 });
-function footPrint(link = null, page = null, experiment = null) {
-    if (currentPage != null) {
+function footPrint(link = '', page = '', experiment = '') {
+    if (currentPage != '') {
         var data = {
             "email": email,
             "page": currentPage,
@@ -71,7 +65,7 @@ function footPrint(link = null, page = null, experiment = null) {
         });
     }
     footPrintFlag = false;
-    if (link != null)
+    if (link != '')
         window.location.href = link;
 }
 function recordTime() {
