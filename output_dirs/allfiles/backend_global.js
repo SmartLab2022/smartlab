@@ -44,6 +44,7 @@ function footPrint(link = '', page = '', experiment = '') {
     console.log('footPrint Called')
     console.log(currentPage , ',' , currentExperiment)
     if (currentExperiment != '') {
+        console.log('called')
         var data = {
             "email": email,
             "page": currentPage,
@@ -63,7 +64,7 @@ function footPrint(link = '', page = '', experiment = '') {
             crossDomain: true,
             data: JSON.stringify(data),
             success: function (response) {
-                //console.log(response)
+                console.log(response)
             }
         });
     }
