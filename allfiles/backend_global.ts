@@ -7,7 +7,7 @@ var currentExperiment
 var footPrintFlag
 var pageTimer
 var email 
-function checkAuth(page = null , experiment = null){
+function checkAuth(page = '' , experiment = ''){
     if(localStorage.getItem('email') == null){
         if(experiment == 'Stack' || experiment == 'BST' || page == 'Aim' || page == 'Index')
             window.location.href = '../signin.html';
@@ -19,12 +19,10 @@ function checkAuth(page = null , experiment = null){
 
     email =localStorage.getItem('email')
     $('#welcomeMsg').html('Welcome ' + localStorage.getItem('name'));
-
-    if(experiment != null){
-        currentPage = page
-        currentExperiment = experiment
-        recordTime()
-    }
+    currentPage = page
+    currentExperiment = experiment
+    recordTime()
+    footPrintFlag = true
 }
 
 function logout(directory_level){
@@ -46,8 +44,8 @@ window.addEventListener('beforeunload' , function(e){
     clearInterval(pageTimer)
 });
 
-function footPrint(link = null , page = null , experiment = null){
-    if(currentPage != null){
+function footPrint(link = '' , page = '' , experiment = ''){
+    if(currentExperiment != ''){
         var data = {
             "email": email,
             "page": currentPage,
@@ -72,7 +70,7 @@ function footPrint(link = null , page = null , experiment = null){
         });
     }
     footPrintFlag = false
-    if(link != null)
+    if(link != '')
         window.location.href = link
 }
 
