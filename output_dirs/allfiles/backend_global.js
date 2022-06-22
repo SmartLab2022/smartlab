@@ -22,6 +22,7 @@ function checkAuth(page = '', experiment = '') {
     currentExperiment = experiment;
     recordTime();
     footPrintFlag = true
+    console.log(currentPage , ',' , currentExperiment)
 }
 function logout(directory_level) {
     var link;
@@ -40,6 +41,8 @@ window.addEventListener('beforeunload', function (e) {
     clearInterval(pageTimer);
 });
 function footPrint(link = '', page = '', experiment = '') {
+    console.log(footPrint Called)
+    console.log(currentPage , ',' , currentExperiment)
     if (currentExperiment != '') {
         var data = {
             "email": email,
