@@ -40,7 +40,7 @@ window.addEventListener('beforeunload', function (e) {
     clearInterval(pageTimer);
 });
 function footPrint(link = '', page = '', experiment = '') {
-    if (currentPage != '') {
+    if (currentExperiment != '') {
         var data = {
             "email": email,
             "page": currentPage,
