@@ -41,7 +41,7 @@ window.addEventListener('beforeunload', function (e) {
     clearInterval(pageTimer);
 });
 function footPrint(link = '', page = '', experiment = '') {
-    console.log(footPrint Called)
+    console.log('footPrint Called')
     console.log(currentPage , ',' , currentExperiment)
     if (currentExperiment != '') {
         var data = {
