@@ -23,6 +23,11 @@ function checkAuth(page = null, experiment = null) {
         currentExperiment = experiment;
         recordTime();
     }
+    else{
+        currentPage = null
+        currentExperiment = null
+    }
+    footPrintFlag = true
 }
 function logout(directory_level) {
     var link;
